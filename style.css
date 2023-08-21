@@ -1,0 +1,140 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222237;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.menu {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.menu .toggle {
+  position: absolute;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6fe787;
+  font-size: 45px;
+  cursor: pointer;
+  transition: 0.5s;
+  transform: translateX(-25%);
+}
+.menu .toggle.active {
+  background-color: #222237;
+  color: white;
+  box-shadow: 0 0 0 10px #222237, 0 0 0 65px white;
+  transform: translateX(-25%) rotate(315deg);
+  transition: 0.5s;
+  background-color: rgb(243, 67, 67);
+}
+.menu li {
+  position: absolute;
+  list-style: none;
+  transform: translate(-80%, -35%) rotate(calc(360deg / 8 * var(--i)))
+    translateX(30px);
+  transform-origin: 130px;
+  border-radius: 50%;
+  left: 25%;
+  top: 47.5%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+.menu.active li {
+  opacity: 1;
+  transition: 0.2s;
+  visibility: visible;
+  z-index: 10;
+}
+.menu li.active {
+  transform: translate(-80%, -35%) rotate(calc(360deg / 8 * var(--i)))
+    translateX(10px);
+  transition: 0.5s;
+}
+.menu li a {
+  height: 55px;
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: black;
+}
+
+.menu .indicator {
+  height: 0.1px;
+  width: 125px;
+  position: relative;
+  left: -27%;
+  transform-origin: right center;
+  visibility: hidden;
+  opacity: 0;
+  /* background-color: red; */
+}
+.menu .indicator::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: 50px;
+  background-color: #29fd53;
+  border: 8px solid #222237;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.menu li:nth-child(2).active ~ .indicator {
+  transform: rotate(43deg);
+  transition: 0.5s;
+}
+.menu li:nth-child(3).active ~ .indicator {
+  transform: rotate(88deg);
+  transition: 0.5s;
+}
+.menu li:nth-child(4).active ~ .indicator {
+  transform: rotate(134deg);
+  transition: 0.5s;
+}
+.menu li:nth-child(5).active ~ .indicator {
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+.menu li:nth-child(6).active ~ .indicator {
+  transform: rotate(225deg);
+  transition: 0.5s;
+}
+.menu li:nth-child(7).active ~ .indicator {
+  transform: rotate(270deg);
+  transition: 0.5s;
+}
+.menu li:nth-child(8).active ~ .indicator {
+  transform: rotate(313deg);
+  transition: 0.5s;
+}
+.menu li:nth-child(9).active ~ .indicator {
+  transform: rotate(-1deg);
+  transition: 0.5s;
+}
+/* @media (min-width: 700px) and (max-width: 1000px) {
+  .menu .toggle {
+    height: 150px;
+    width: 150px;
+    font-size: 80px;
+    transform: translateX(-5%);
+  }
+  .menu .toggle.active {
+    box-shadow: 0 0 0 20px #222237, 0 0 0 85px white;
+  }
+} */
